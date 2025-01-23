@@ -7,5 +7,5 @@ const readStream = fs.createReadStream(filePath, 'utf8');
 readStream.pipe(process.stdout);
 
 readStream.on('error', (err) => {
-    console.log("Error: ", error.message);
+    console.log("Error: ", err.message);
 });

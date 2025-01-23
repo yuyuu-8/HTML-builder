@@ -10,9 +10,10 @@ async function displayFilesInfo() {
       if (file.isFile()) {
         const filePath = path.join(folderPath, file.name);
         const stats = await fs.stat(filePath);
+        const fileName = path.basename(file.name, path.extname(file.name));
         const fileSizeInKB = (stats.size / 1024).toFixed(3); // convert to KB
         const fileExtension = path.extname(file.name).slice(1); // extension without dot
-        console.log(`${file.name} - ${fileExtension} - ${fileSizeInKB}kb`);
+        console.log(`${fileName} - ${fileExtension} - ${fileSizeInKB}kb`);
       }
     }
   } catch (error) {
